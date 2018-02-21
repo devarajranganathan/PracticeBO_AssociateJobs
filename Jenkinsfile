@@ -12,7 +12,7 @@ pipeline {
             
           },
           "JobB": {
-            node(label: 'Sid_Machine') {
+            node(label: 'Master') {
               build 'MultiJob_Jobs/B'
             }
             
@@ -23,10 +23,22 @@ pipeline {
     }
     stage('JobC') {
       steps {
-        node(label: 'Master') {
-          build 'MultiJob_Jobs/C'
-        }
-        
+        parallel(
+          "JobC": {
+            node(label: 'Sid_Machine') {
+              build 'MultiJob_Jobs/C'
+            }
+            
+            
+          },
+          "JobD": {
+            node(label: 'Sid_Machine') {
+              build 'MultiJob_Jobs/D'
+            }
+            
+            
+          }
+        )
       }
     }
   }
