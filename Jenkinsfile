@@ -5,14 +5,14 @@ pipeline {
       steps {
         parallel(
           "JobA": {
-            node(label: 'Master') {
+            node(label: 'Priyanka') {
               build 'MultiJob_Jobs/A'
             }
             
             
           },
           "JobB": {
-            node(label: 'Master') {
+            node(label: 'Priyanka') {
               build 'MultiJob_Jobs/B'
             }
             
