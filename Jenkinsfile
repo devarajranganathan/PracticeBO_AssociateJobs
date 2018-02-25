@@ -5,17 +5,11 @@ pipeline {
       steps {
         parallel(
           "JobA": {
-            node(label: 'Priyanka') {
-              build 'MultiJob_Jobs/A'
-            }
-            
+            build 'MultiJob_Jobs/A'
             
           },
           "JobB": {
-            node(label: 'Priyanka') {
-              build 'MultiJob_Jobs/B'
-            }
-            
+            build 'MultiJob_jobs/B'
             
           }
         )
@@ -25,17 +19,11 @@ pipeline {
       steps {
         parallel(
           "JobC": {
-            node(label: 'Sid_Machine') {
-              build 'MultiJob_Jobs/C'
-            }
-            
+            build 'MultiJob_Jobs/C'
             
           },
           "JobD": {
-            node(label: 'Sid_Machine') {
-              build 'MultiJob_Jobs/D'
-            }
-            
+            build 'MultiJob_Jobs/D'
             
           }
         )
